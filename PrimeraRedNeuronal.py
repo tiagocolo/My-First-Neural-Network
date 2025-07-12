@@ -1,4 +1,3 @@
-
 import tensorflow as tf
 import numpy as np
 
@@ -10,19 +9,19 @@ capa = tf.keras.layers.Dense(units=1, input_shape=[1])
 modelo = tf.keras.Sequential([capa])
 
 modelo.compile(
-    optimizer = tf.keras.optimizers.Adam(0.1),
+    optimizer = tf.keras.optimizers.Adam(0.01),
     loss = 'mean_squared_error'
 )
 
 print('Comenzando Entrenamiento...')
 
-record = modelo.fit(celsius, fahrenheit, epochs = 1000, verbose = False)
+record = modelo.fit(celsius, fahrenheit, epochs = 7000, verbose = False)
 
 print('Modelo Entrenado!')
 
 print('Hagamos una prediccion')
 
-PruebaDePrediccion = modelo.predict(np.array([100.0]))
+PruebaDePrediccion = modelo.predict(np.array([15]))
 
 print('El resultado es ', str(PruebaDePrediccion),'Fahrenheit')
 
